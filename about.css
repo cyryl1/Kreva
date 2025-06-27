@@ -41,6 +41,37 @@
   font-weight: 500;
 }
 
+#about__projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2rem;
+  row-gap: 2rem;
+  margin-top: 2rem;
+  padding: 0 2rem 0 2rem;
+  border-top: 1px solid var(--secondary-green-900);
+}
+
+#about__projects p,
+#about__projects .project__aside {
+  grid-column: 3/4;
+  text-wrap: balance;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+#about__projects p {
+  margin-left: 1rem;
+}
+
+#about__projects .project__aside {
+  padding-bottom: 2rem;
+}
+
+#about__projects .project__aside p {
+  margin-left: 0;
+  padding-top: 2rem;
+}
+
 @media (max-width: 600px) {
   .about__header {
     margin-top: 3em;
@@ -83,5 +114,27 @@
 
   .mission h2 {
     line-height: 1.1;
+  }
+}
+
+@media (max-width: 425px) {
+  #about__projects p,
+  #about__projects .project__aside {
+    font-weight: 300;
+    line-height: 1.5;
+    font-size: 1rem;
+  }
+
+  #about__projects p {
+    margin: 1rem 2rem;
+  }
+
+  #about__projects .project__aside {
+    padding-bottom: 3rem;
+  }
+
+  #about__projects .project__aside p {
+    margin-left: 0;
+    padding-top: 0;
   }
 }
