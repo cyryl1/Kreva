@@ -621,7 +621,6 @@ header {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   width: 400px;
   background-color: #1E1E1E;
-  
 }
 
 .card_header {
@@ -1072,6 +1071,12 @@ header {
     font-size: 1.1rem;
   }
 
+  #partners .partners__grid img {
+    max-width: 70px;
+    height: auto;
+    object-fit: contain;
+  }
+
   #partners .partners__grid::-webkit-scrollbar {
     display: none;
   }
@@ -1122,11 +1127,50 @@ header {
     overflow-x: auto;
   }
 
+  #partners .partners__grid img {
+    max-width: 60px;
+    height: auto;
+    object-fit: contain;
+  }
+ 
+
   #partners .partners__grid::-webkit-scrollbar {
     display: none;
   }
   #partners .partners__grid {
     scrollbar-width: none;
+  }
+
+  #projects {
+    margin-top: 3rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 1rem;
+    gap: 0.5rem;
+    padding: .4rem 0;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  
+
+  #projects .projects_completed,
+  #projects .designs_completed,
+  #projects .years_completed{
+    text-align: center;
+    border: none;
+    padding: 1.2rem 0.2rem;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      margin-top: 0;
+      font-weight: 500;
+    }
+
+    span {
+      text-align: center;
+      font-size: .6rem;
+    }
   }
 
   .client_reviews__grid > .scroll {
@@ -1197,13 +1241,19 @@ header {
     font-size: calc(var(--fs-900) / 1.75);
   }
 
+  #partners .partners__grid img {
+    max-width: 50px;
+    height: auto;
+    object-fit: contain;
+  }
+
   #projects {
-    margin-top: 1rem;
+    margin-top: 3rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     border-radius: 1rem;
     gap: 0.5rem;
-    padding: 1rem 0;
+    padding: .4rem 0;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
@@ -1217,7 +1267,7 @@ header {
     padding: 1.2rem 0.2rem;
 
     h2 {
-      font-size: 2.2rem;
+      font-size: 1.5rem;
       margin-bottom: 0;
       margin-top: 0;
       font-weight: 500;
@@ -1225,6 +1275,7 @@ header {
 
     span {
       text-align: center;
+      font-size: .6rem;
     }
   }
 
