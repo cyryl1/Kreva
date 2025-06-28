@@ -1257,7 +1257,11 @@ header {
   }
 
   .services__desc .services__desc__header {
-    padding: 0px 0px 0px 0px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    margin-top: 0;
+    /* padding: 0px 0px 0px 0px; */
   }
 
   .services__header .services__header__text {
