@@ -888,7 +888,7 @@ header {
     background-color: #eaf5ef;
   }
 
-  .client_reviews > .client_reviews__grid > .scroller > .card {
+  .client_reviews > .client_reviews__grid > .scroll > .card {
     background-color: #eaf5ef;
   }
   
@@ -1205,7 +1205,6 @@ header {
     gap: 0.5rem;
     padding: 1rem 0;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: #1E1E1E;
   }
 
   
