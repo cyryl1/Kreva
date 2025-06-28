@@ -1079,25 +1079,6 @@ header {
     scrollbar-width: none;
   }
 
-  /* .client_reviews__grid {
-    display: block;
-    overflow: hidden;
-    width: 100vw;
-    margin: 2rem 0 2rem calc(-50vw + 50%);
-  }
-  .client_reviews__grid .scroller__inner {
-    display: flex;
-    gap: 1rem;
-    animation: scroll 32s linear infinite;
-    width: max-content;
-  }
-  .client_review.card {
-    min-width: 80vw;
-    max-width: 85vw;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-  } */
-
   .client_reviews__grid {
     display: flex;
     flex-direction: row;
@@ -1147,24 +1128,6 @@ header {
   #partners .partners__grid {
     scrollbar-width: none;
   }
-  /* .partners__scroller {
-    display: block;
-    overflow: hidden;
-    width: 100vw;
-    margin: 2rem 0 2rem calc(-50vw + 50%);
-  }
-  .partners__scroller .scroller__inner {
-    display: flex;
-    gap: 2rem;
-    animation: scroll 16s linear infinite;
-    width: max-content;
-  }
-  .partners__scroll img {
-    max-width: 80px;
-    flex: 0 0 auto;
-    height: auto;
-    object-fit: contain;
-  } */
 
   .client_reviews__grid > .scroll {
     display: flex;
@@ -1197,35 +1160,6 @@ header {
     font-size: 1.3rem;
     font-weight: 600;
   }
-
-  /* .client_reviews__grid {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 1rem;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    width: 100vw;
-    margin: 2rem 0 2rem calc(-50vw + 50%);
-  }
-  .client_review.card {
-    min-width: 80vw;
-    max-width: 85vw;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-  }
-  .client_reviews__grid::-webkit-scrollbar {
-    display: none;
-  }
-  .client_reviews__grid {
-    scrollbar-width: none;
-  }
-
-  .client_reviews__grid {
-  margin-bottom: 4rem;
-  -webkit-mask-image: none,;
-  mask-image: none;
-} */
 }
 
 @keyframes scroll {
@@ -1320,6 +1254,10 @@ header {
     font-size: 1rem;
     line-height: 0.5;
     padding: 1rem auto;
+  }
+
+  .services__desc .services__desc__header {
+    padding: 0px 0px 0px 0px;
   }
 
   .services__header .services__header__text {
