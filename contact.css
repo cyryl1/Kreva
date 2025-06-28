@@ -22,6 +22,20 @@ form {
   background: #141414;
 }
 
+.submit_btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.submit_btn > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 @media (max-width: 600px) {
   form {
     margin: 5rem auto;
