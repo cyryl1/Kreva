@@ -137,4 +137,22 @@
     margin-left: 0;
     padding-top: 0;
   }
+
+  #about__projects {
+    display: flex;
+    flex-direction: column;
+    /* gap: 2rem; */
+  }
+
+  #about__projects h2 {
+    margin-bottom: 0;
+  }
+
+  /* #about__projects p,
+  #about__projects .project__aside {
+    grid-column: 3/4;
+    text-wrap: balance;
+    font-weight: 700;
+    line-height: 1.7;
+  } */
 }

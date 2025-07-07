@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="contact.css" />
     <title>KREVA | Birthing Emerging Brands</title>
+    
   </head>
   <body>
     <div id="preloader">
@@ -70,8 +71,7 @@
           <span>extraordinary!</span>
         </h1>
       </main>
-      <form action="https://formsubmit.co/aribisalapraise12@gmail.com" method="POST" class="container" id="contact_form">
-        <input type="hidden" name="_subject" value="New User Request!">
+      <!-- <form action="mailto:contact.kreva@gmail.com" method="POST" class="container" id="contact_form">
         <div class="input__field">
           <label for="first-name">First Name</label><input name="first-name" id="first-name" type="text" required />
         </div>
@@ -87,15 +87,6 @@
         <div class="input__field">
           <label for="email">Email</label><input name="email" id="email" type="email" required />
         </div>
-        <!-- <div class="input__field">
-          <label for="enquiry">Type of Enquiry</label>
-          <select name="" id="enquiry">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-          </select>
-        </div> -->
         <div class="input__field">
           <label for="message">Message</label>
           <textarea
@@ -107,13 +98,48 @@
             required
           ></textarea>
         </div>
-        <input type="hidden" name="_next" value="">
         <button class="submit_btn">
           <p>Start a Project</p>
           <img src="./Assets/Icons/send.png" alt="send" />
         </button>
+      </form> -->
+      <form onsubmit="handleFormSubmit(event)" class="container" id="contact_form">
+        <div class="input__field">
+          <label for="first-name">First Name</label>
+          <input name="first-name" id="first-name" type="text" required />
+        </div>
+        <div class="input__field">
+          <label for="last-name">Last Name</label>
+          <input name="last-name" id="last-name" type="text" required />
+        </div>
+        <div class="input__field">
+          <label for="company">Company Name</label>
+          <input name="company" id="company" type="text" required />
+        </div>
+        <div class="input__field">
+          <label for="tel">Phone Number</label>
+          <input name="tel" id="tel" type="tel" required />
+        </div>
+        <div class="input__field">
+          <label for="email">Email</label>
+          <input name="email" id="email" type="email" required />
+        </div>
+        <div class="input__field">
+          <label for="message">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Type in your message"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="submit_btn">
+          <p>Start a Project</p>
+          <img src="./Assets/Icons/send.png" alt="send" />
+        </button>
       </form>
-
       <!-- FOOTER SECTION -->
       <footer class="footer">
         <a href="#" class="logo"
@@ -125,7 +151,7 @@
               Don't hesitate to reach <br />
               out to us.
             </h3>
-            <a href="#">
+            <a href="contact.html">
               <span>Start Project</span>
               <img src="./Assets/Icons/send.png" alt="" />
             </a>
