@@ -49,8 +49,8 @@ if (window.matchMedia("(prefers-color-scheme:light)").matches) {
   animationLogo.src = "Assets/Icons/green_center_logo.png";
 }
 
-function handleFormSubmit(event) {
-  event.preventDefault(); // Prevent the default form submission
+async function handleFormSubmit(event) {
+  event.preventDefault(); // Prevent default form submission
 
   // Get form field values
   const firstName = document.getElementById('first-name').value.trim();
@@ -60,28 +60,41 @@ function handleFormSubmit(event) {
   const email = document.getElementById('email').value.trim();
   const message = document.getElementById('message').value.trim();
 
-  // Validate that all required fields are filled
+  // Client-side validation
   if (!firstName || !lastName || !company || !phone || !email || !message) {
     alert('Please fill out all required fields.');
     return;
   }
 
-  // Construct the email subject
-  const subject = encodeURIComponent(`Project Inquiry from ${firstName} ${lastName}`);
+  // Prepare data for backend
+  const formData = {
+    firstName,
+    lastName,
+    company,
+    phone,
+    email,
+    message,
+  };
 
-  // Construct the email body
-  const body = encodeURIComponent(
-    `First Name: ${firstName}\n` +
-    `Last Name: ${lastName}\n` +
-    `Company: ${company}\n` +
-    `Phone: ${phone}\n` +
-    `Email: ${email}\n\n` +
-    `Message:\n${message}`
-  );
+  try {
+    const response = await fetch('http://localhost:3000/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
 
-  // Create the mailto link
-  const mailtoLink = `mailto:contact.kreva@gmail.com?subject=${subject}&body=${body}`;
+    const result = await response.json();
 
-  // Redirect to the mailto link to open the email client
-  window.location.href = mailtoLink;
+    if (response.ok) {
+      alert('Your message has been sent successfully!');
+      document.getElementById('contact_form').reset(); // Clear form
+    } else {
+      alert(result.error || 'Failed to send message.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again later.');
+  }
 }
