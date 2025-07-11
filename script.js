@@ -5,6 +5,7 @@ const hamburger = document.querySelector(".hamburger__menu");
 const mobileNavigation = document.querySelector(".mobile__nav");
 const loader = document.getElementById("preloader");
 const page = document.getElementById("page");
+const BASE_URL = "https://kreva-backend.vercel.app"
 
 const addAnimation = () => {
   scrollers.forEach((scroller) => {
@@ -134,7 +135,7 @@ async function handleFormSubmit(event) {
   };
 
   try {
-    const response = await fetch('http://localhost:4000/api/send-email', {
+    const response = await fetch(`${BASE_URL}/api/send-email`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
