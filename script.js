@@ -49,10 +49,66 @@ if (window.matchMedia("(prefers-color-scheme:light)").matches) {
   animationLogo.src = "Assets/Icons/green_center_logo.png";
 }
 
-async function handleFormSubmit(event) {
-  event.preventDefault(); // Prevent default form submission
+const listItems = document.querySelectorAll('.mobile__nav ul li');
 
-  // Get form field values
+listItems.forEach(li => {
+  li.addEventListener('click', () => {
+    const link = li.querySelector('a');
+    if (link) {
+      // Redirect to the href of the <a>
+      window.location.href = link.href;
+    }
+  });
+});
+
+// Function to show modal with message and icon type ('success' or 'failure')
+function showModal(type, title, message) {
+  const modal = document.getElementById('feedbackModal');
+  const modalIcon = document.getElementById('modalIcon');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalMessage = document.getElementById('modalDesc');
+
+  // Reset classes
+  modalIcon.className = 'modal-icon';
+
+  if (type === 'success') {
+    modalIcon.textContent = '✔';
+    modalIcon.classList.add('success');
+  } else if (type === 'failure') {
+    modalIcon.textContent = '✖';
+    modalIcon.classList.add('failure');
+  }
+
+  modalTitle.textContent = title;
+  modalMessage.textContent = message;
+
+  modal.classList.remove('hidden');
+
+  document.getElementById('modalCloseBtn').focus();
+}
+
+// Function to hide modal
+function hideModal() {
+  const modal = document.getElementById('feedbackModal');
+  modal.classList.add('hidden');
+}
+
+document.getElementById('modalCloseBtn').addEventListener('click', hideModal);
+
+document.getElementById('feedbackModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) {
+    hideModal();
+  }
+});
+
+
+async function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const button = document.getElementById('contact_submit');
+  const originalButtonContent = button.innerHTML;
+
+  // Get form values
   const firstName = document.getElementById('first-name').value.trim();
   const lastName = document.getElementById('last-name').value.trim();
   const company = document.getElementById('company').value.trim();
@@ -60,41 +116,43 @@ async function handleFormSubmit(event) {
   const email = document.getElementById('email').value.trim();
   const message = document.getElementById('message').value.trim();
 
-  // Client-side validation
   if (!firstName || !lastName || !company || !phone || !email || !message) {
-    alert('Please fill out all required fields.');
+    showModal('failure', 'Oops!', 'Please fill out all required fields.');
     return;
   }
 
-  // Prepare data for backend
-  const formData = {
-    firstName,
-    lastName,
-    company,
-    phone,
-    email,
-    message,
+  button.disabled = true;
+  button.innerHTML = `<span class="spinner"></span> <span class="spinner_text">Loading...</span>`;
+
+  const formData = { 
+    firstName, 
+    lastName, 
+    company, 
+    phone, 
+    email, 
+    message 
   };
 
   try {
     const response = await fetch('http://localhost:4000/api/send-email', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     });
 
-    const result = await response.json();
+    if (!response.ok) throw new Error('Failed to submit');
 
-    if (response.ok) {
-      alert('Your message has been sent successfully!');
-      document.getElementById('contact_form').reset(); // Clear form
-    } else {
-      alert(result.error || 'Failed to send message.');
-    }
+    await response.json();
+
+    showModal('success', 'Success!', 'Your message has been sent successfully!');
+    document.getElementById('contact_form').reset();
   } catch (error) {
-    console.error('Error:', error);
-    alert('An error occurred. Please try again later.');
+    console.error(error);
+    showModal('failure', 'Error', 'An error occurred. Please try again later.');
+  } finally {
+    button.disabled = false;
+    button.innerHTML = originalButtonContent;
   }
 }
+
+

@@ -950,6 +950,7 @@ header {
   z-index: 20;
 }
 
+
 .mobile__nav.active {
   display: block;
   position: fixed;
@@ -968,6 +969,7 @@ header {
 
 .mobile__nav ul li {
   font-weight: 400;
+  cursor: pointer;
 }
 
 /*
