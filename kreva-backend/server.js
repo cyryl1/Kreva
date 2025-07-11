@@ -36,7 +36,7 @@ app.post('/api/send-email', async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: 'praisearibisala3@gmail.com',
+    to: 'aribisalapraise12@gmail.com',
     subject: `Project Inquiry from ${firstName} ${lastName}`,
     text: `
       Hello Kreva,
