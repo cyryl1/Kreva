@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.use(cors({ origin: ['https://kreva.vercel.app', 'http://127.0.0.1:5500'] }));
+app.use(cors({ origin: ['https://www.wearekreva.com/', 'http://127.0.0.1:5500'] }));
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
