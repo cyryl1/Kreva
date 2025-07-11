@@ -972,6 +972,15 @@ header {
   cursor: pointer;
 }
 
+.mobile__nav ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 12px 20px; /* optional for bigger tap area */
+  text-decoration: none;
+  color: inherit;
+}
+
 /*
      For all screens
            below 1024px
